@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Peserta Pelatihan Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .output-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="output-container">
+    <h2>Data Peserta Pelatihan Web</h2>
+    <p><strong>NIM:</strong> <span id="outputNim"></span></p>
+    <p><strong>Nama Lengkap:</strong> <span id="outputNama"></span></p>
+    <p><strong>Kelas:</strong> <span id="outputKelas"></span></p>
+    <p><strong>Jurusan:</strong> <span id="outputJurusan"></span></p>
+    <p><strong>Alamat:</strong> <span id="outputAlamat"></span></p>
+    <p><strong>Jenis Kelamin:</strong> <span id="outputJenisKelamin"></span></p>
+    <button onclick="resetForm()">Input Data Lagi</button>
+</div>
+
+<script>
+    // Ambil data dari localStorage dan tampilkan
+    document.getElementById('outputNim').innerText = localStorage.getItem('nim');
+    document.getElementById('outputNama').innerText = localStorage.getItem('nama');
+    document.getElementById('outputKelas').innerText = localStorage.getItem('kelas');
+    document.getElementById('outputJurusan').innerText = localStorage.getItem('jurusan');
+    document.getElementById('outputAlamat').innerText = localStorage.getItem('alamat');
+    document.getElementById('outputJenisKelamin').innerText = localStorage.getItem('jenisKelamin');
+
+    function resetForm() {
+        // Kosongkan localStorage
+        localStorage.clear();
+        // Kembali ke halaman input
+        window.location.href = 'input.html';
+    }
+</script>
+
+</body>
+</html>

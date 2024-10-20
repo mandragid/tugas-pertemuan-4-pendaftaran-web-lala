@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Pelatihan Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Pendaftaran Pelatihan Web</h2>
+    <form id="registrationForm" onsubmit="return saveData()">
+        <label for="nim">NIM:</label><br>
+        <input type="text" id="nim" required><br><br>
+        
+        <label for="nama">Nama Lengkap:</label><br>
+        <input type="text" id="nama" required><br><br>
+        
+        <label for="kelas">Kelas:</label><br>
+        <input type="text" id="kelas" required><br><br>
+        
+        <label for="jurusan">Jurusan:</label><br>
+        <select id="jurusan" required>
+            <option value="" disabled selected>Pilih</option>
+            <option value="IMI">IMI</option>
+            <option value="TI">TI</option>
+            <option value="SI">SI</option>
+        </select><br><br>
+        
+        <label for="alamat">Alamat:</label><br>
+        <textarea id="alamat" required></textarea><br><br>
+        
+        <label>Jenis Kelamin:</label><br>
+        <input type="radio" name="jenisKelamin" value="Laki-laki" required>Laki-laki
+        <input type="radio" name="jenisKelamin" value="Perempuan" required>Perempuan<br><br>
+        
+        <button type="submit">Simpan</button>
+        <button type="reset">Batal</button>
+    </form>
+</div>
+
+<script>
+    function saveData() {
+        const nim = document.getElementById('nim').value;
+        const nama = document.getElementById('nama').value;
+        const kelas = document.getElementById('kelas').value;
+        const jurusan = document.getElementById('jurusan').value;
+        const alamat = document.getElementById('alamat').value;
+        const jenisKelamin = document.querySelector('input[name="jenisKelamin"]:checked').value;
+
+        // Simpan data ke localStorage
+        localStorage.setItem('nim', nim);
+        localStorage.setItem('nama', nama);
+        localStorage.setItem('kelas', kelas);
+        localStorage.setItem('jurusan', jurusan);
+        localStorage.setItem('alamat', alamat);
+        localStorage.setItem('jenisKelamin', jenisKelamin);
+
+        // Pindah ke halaman output
+        window.location.href = 'output.html';
+        return false; // Mencegah reload
+    }
+</script>
+
+</body>
+</html>
